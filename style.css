@@ -1,0 +1,240 @@
+body {
+  margin: 0;
+  font-family: Arial, sans-serif;
+  background: #f2f2f2;
+  height: 100vh;
+  display: flex;
+  flex-direction: column;
+}
+
+/* HEADER */
+.header {
+  background: #7ac943;
+  color: white;
+  padding: 14px;
+  text-align: center;
+  font-weight: bold;
+  position: relative;
+}
+
+/* INFO ONLINE (KANAN ATAS) */
+.online-info {
+  position: absolute;
+  right: 14px;
+  top: 14px;
+  font-size: 13px;
+  background: rgba(255,255,255,0.2); /* TAMBAHAN */
+  padding: 4px 10px;                /* TAMBAHAN */
+  border-radius: 12px;              /* TAMBAHAN */
+}
+
+/* AREA CHAT */
+#chatBox {
+  flex: 1;
+  padding: 12px;
+  overflow-y: auto;
+  display: flex;
+  flex-direction: column;
+  align-items: stretch;
+  scroll-behavior: smooth; /* TAMBAHAN */
+}
+
+/* BUBBLE UMUM */
+.chat-bubble {
+  max-width: 70%;
+  padding: 10px 14px;
+  border-radius: 16px;
+  margin-bottom: 8px;
+  font-size: 14px;
+  line-height: 1.4;
+  word-wrap: break-word;
+  animation: popIn 0.15s ease-out; /* TAMBAHAN */
+}
+
+/* PENGIRIM (KANAN – HIJAU) */
+.chat-right {
+  align-self: flex-end;
+  background: #7ac943;
+  color: white;
+  border-bottom-right-radius: 4px;
+}
+
+/* PENERIMA (KIRI – PINK) */
+.chat-left {
+  align-self: flex-start;
+  background: #ff5fa2;
+  color: white;
+  border-bottom-left-radius: 4px;
+}
+
+/* USER + STATUS */
+.chat-user {
+  font-size: 12px;
+  font-weight: bold;
+  margin-bottom: 2px;
+  display: flex;
+  align-items: center;
+  gap: 6px;
+}
+
+/* TITIK ONLINE */
+.status-dot {
+  width: 8px;
+  height: 8px;
+  border-radius: 50%;
+  background: #00ff5a;
+  display: inline-block;
+}
+
+/* STATUS OFFLINE */
+.status-dot.offline {
+  background: #bbb;
+}
+
+/* TIMESTAMP */
+.chat-time {
+  font-size: 11px;
+  opacity: 0.8;
+  margin-top: 4px;
+  text-align: right;
+}
+
+/* SYSTEM MESSAGE */
+.system-message {
+  text-align: center;
+  font-size: 13px;
+  color: #666;
+  margin: 10px 0;
+  background: #eaeaea;        /* TAMBAHAN */
+  display: inline-block;      /* TAMBAHAN */
+  padding: 6px 12px;          /* TAMBAHAN */
+  border-radius: 12px;        /* TAMBAHAN */
+}
+
+/* INPUT */
+.input-area {
+  display: flex;
+  padding: 10px;
+  gap: 10px;
+  background: #fff;
+  border-top: 1px solid #ddd;
+}
+
+.input-area input {
+  flex: 1;
+  padding: 10px;
+  border-radius: 20px;
+  border: 1px solid #ccc;
+  font-size: 15px;
+}
+
+.input-area button {
+  padding: 10px 18px;
+  border-radius: 20px;
+  border: none;
+  background: #7ac943;
+  color: white;
+  font-weight: bold;
+}
+
+/* TYPING INDICATOR */
+.typing {
+  font-size: 13px;
+  color: #555;
+  margin: 4px 12px;
+}
+
+.typing::after {
+  content: " mengetik";
+}
+
+.typing span {
+  animation: blink 1.4s infinite both;
+}
+
+.typing span:nth-child(2) {
+  animation-delay: 0.2s;
+}
+
+.typing span:nth-child(3) {
+  animation-delay: 0.4s;
+}
+
+/* LOGOUT BUTTON */
+.logout-btn {
+  position: absolute;
+  left: 14px;
+  top: 10px;
+  background: white;
+  color: #7ac943;
+  border: none;
+  border-radius: 16px;
+  padding: 6px 12px;
+  font-size: 12px;
+  cursor: pointer;
+}
+
+/* ===================================================
+   OVERRIDE AMAN – MIRIP WHATSAPP
+=================================================== */
+
+.chat-bubble {
+  font-size: 17px;
+  padding: 14px 18px;
+  line-height: 1.5;
+  max-width: 85%;
+}
+
+.chat-user {
+  font-size: 14px;
+  margin-bottom: 4px;
+}
+
+.chat-time {
+  font-size: 12px;
+}
+
+.input-area input {
+  font-size: 16px;
+  padding: 14px;
+}
+
+.input-area button {
+  font-size: 16px;
+  padding: 14px 20px;
+}
+
+/* MOBILE */
+@media (max-width: 600px) {
+  .chat-bubble {
+    font-size: 18px;
+    padding: 16px 20px;
+    max-width: 88%;
+  }
+
+  .chat-user {
+    font-size: 15px;
+  }
+
+  .chat-time {
+    font-size: 12px;
+  }
+}
+
+/* ANIMASI */
+@keyframes popIn {
+  from {
+    transform: scale(0.95);
+    opacity: 0;
+  }
+  to {
+    transform: scale(1);
+    opacity: 1;
+  }
+}
+
+@keyframes blink {
+  0% { opacity: .2; }
+  20% { opacity: 1; }
+  100% { opacity: .2; }
+}
